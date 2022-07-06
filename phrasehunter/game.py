@@ -1,4 +1,4 @@
-from phrases import PHRASES
+from phrasehunter.phrases import PHRASES
 from random import choice
 
 NUMBER_OF_PHRASES = 5
@@ -20,7 +20,7 @@ class Game:
         selected_phrases = []
 
         for _ in range(NUMBER_OF_PHRASES):
-            available_phrases = set(PHRASES) - set(selected_phrases)
+            available_phrases = (set(PHRASES) - set(selected_phrases))
             random_phrase = choice(list(available_phrases))
             selected_phrases.append(random_phrase)
-        return selected_phrases
+        return [phrase.lower() for phrase in selected_phrases]

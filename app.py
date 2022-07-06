@@ -3,7 +3,8 @@ from phrasehunter.game import Game
 
 
 if __name__ == '__main__':
-    phrase = Phrase('Life is like a box of chocolates')
-    print(phrase.phrase)
     game = Game()
     game.run()
+
+    for phrase in game.phrases:
+        print(phrase)

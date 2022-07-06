@@ -8,5 +8,6 @@ PHRASES = [
     'Who ya gonna call',
     'Would you like fries with that',
     'Not it',
-
+    'I am Ironman',
+    'Soy Milk'
 ]
