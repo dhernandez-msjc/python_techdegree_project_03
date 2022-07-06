@@ -12,7 +12,21 @@ class Game:
         self.active_phrases = None
         self.guesses = [" "]
 
-    def run(self) -> None:
+    def get_random_phrase(self) -> str:
+        random_phrase = choice(self.phrases)
+        self.phrases.remove(random_phrase)
+        return random_phrase
+
+    def welcome(self) -> None:
+        pass
+
+    def get_guess(self):
+        pass
+
+    def game_over(self):
+        pass
+
+    def start(self) -> None:
         pass
 
     @staticmethod
