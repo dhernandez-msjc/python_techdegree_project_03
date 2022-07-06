@@ -15,9 +15,12 @@ class Game:
     def run(self) -> None:
         pass
 
-    def _create_phrases(self) -> []:
+    @staticmethod
+    def _create_phrases() -> []:
         selected_phrases = []
 
         for _ in range(NUMBER_OF_PHRASES):
-            pass
+            available_phrases = set(PHRASES) - set(selected_phrases)
+            random_phrase = choice(list(available_phrases))
+            selected_phrases.append(random_phrase)
         return selected_phrases
