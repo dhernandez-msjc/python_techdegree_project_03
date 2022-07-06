@@ -12,12 +12,3 @@ class Phrase:
 
     def check_complete(self) -> bool:
         pass
-
-    def _create_phrases(self) -> None:
-        phrases = [
-            'hello world',
-            'to infinity and beyond',
-            'hang on lady we going for a ride',
-            'i feel invincible',
-
-        ]
