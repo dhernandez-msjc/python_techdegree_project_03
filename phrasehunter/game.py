@@ -1,4 +1,9 @@
-# Create your Game class logic in here.
+from phrases import PHRASES
+from random import choice
+
+NUMBER_OF_PHRASES = 5
+
+
 class Game:
 
     def __init__(self) -> None:
@@ -12,4 +17,7 @@ class Game:
 
     def _create_phrases(self) -> []:
         selected_phrases = []
+
+        for _ in range(NUMBER_OF_PHRASES):
+            pass
         return selected_phrases
