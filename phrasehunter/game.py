@@ -1,3 +1,4 @@
+from phrasehunter.phrase import Phrase
 from phrasehunter.phrases import PHRASES
 from random import choice
 
@@ -8,14 +9,14 @@ class Game:
 
     def __init__(self) -> None:
         self.missed = 0
-        self.phrases = self._create_phrases()
-        self.active_phrases = None
-        self.guesses = [" "]
+        self.phrases = None
+        self.active_phrase = None
+        self.guesses = [' ']
 
-    def get_random_phrase(self) -> str:
+    def get_random_phrase(self) -> Phrase:
         random_phrase = choice(self.phrases)
         self.phrases.remove(random_phrase)
-        return random_phrase
+        return Phrase(random_phrase)
 
     def welcome(self) -> None:
         pass
@@ -27,7 +28,8 @@ class Game:
         pass
 
     def start(self) -> None:
-        pass
+        self.phrases = self._create_phrases()
+        self.active_phrase = self.get_random_phrase()
 
     @staticmethod
     def _create_phrases() -> []:
@@ -37,4 +39,4 @@ class Game:
             available_phrases = (set(PHRASES) - set(selected_phrases))
             random_phrase = choice(list(available_phrases))
             selected_phrases.append(random_phrase)
-        return [phrase.lower() for phrase in selected_phrases]
+        return selected_phrases
