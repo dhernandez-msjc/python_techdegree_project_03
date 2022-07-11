@@ -19,7 +19,14 @@ class Game:
         return Phrase(random_phrase)
 
     def welcome(self) -> None:
-        pass
+        MAIN_MESSAGE = "Welcome to Phrase Hunter"
+        HIDDEN_MESSAGE = "t_ee_ou_e"
+        BORDER = '=' * (len(MAIN_MESSAGE) + 10)
+
+        print(BORDER)
+        print(f'{MAIN_MESSAGE:^{len(BORDER)}}')
+        print(f'{HIDDEN_MESSAGE:^{len(BORDER)}}')
+        print(BORDER)
 
     def get_guess(self):
         pass
