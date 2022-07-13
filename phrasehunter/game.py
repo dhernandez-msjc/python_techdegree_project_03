@@ -38,6 +38,11 @@ class Game:
         self.phrases = self._create_phrases()
         self.active_phrase = self.get_random_phrase()
 
+        self.welcome()
+        print(f'Number missed: {self.missed}')
+        self.active_phrase.display(self.guesses)
+
+
     @staticmethod
     def _create_phrases() -> []:
         selected_phrases = []
@@ -47,3 +52,7 @@ class Game:
             random_phrase = choice(list(available_phrases))
             selected_phrases.append(random_phrase)
         return selected_phrases
+
+    @staticmethod
+    def _validate_input() -> str:
+        user_input = input('Enter a letter: ')
