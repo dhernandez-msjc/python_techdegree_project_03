@@ -1,6 +1,7 @@
 from phrasehunter.phrase import Phrase
 from phrasehunter.phrases import PHRASES
 from random import choice
+from string import ascii_lowercase
 
 NUMBER_OF_PHRASES = 5
 
@@ -29,10 +30,7 @@ class Game:
         print(BORDER)
 
     def get_guess(self):
-        pass
-
-    def game_over(self):
-        pass
+        return self._validate_user_guess()
 
     def start(self) -> None:
         self.phrases = self._create_phrases()
@@ -42,6 +40,11 @@ class Game:
         print(f'Number missed: {self.missed}')
         self.active_phrase.display(self.guesses)
 
+        user_guess = self.get_guess()
+        self.guesses.append(user_guess)
+
+    def game_over(self):
+        pass
 
     @staticmethod
     def _create_phrases() -> []:
@@ -54,5 +57,11 @@ class Game:
         return selected_phrases
 
     @staticmethod
-    def _validate_input() -> str:
+    def _validate_user_guess() -> str:
         user_input = input('Enter a letter: ')
+
+        while user_input not in ascii_lowercase or len(user_input) != 1:
+            print('Invalid entry. ')
+            print('Please enter a lower-case letter between a - z.\n')
+            user_input = input('Enter a letter: ')
+        return user_input
