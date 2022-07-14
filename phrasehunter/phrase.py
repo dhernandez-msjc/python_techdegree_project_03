@@ -11,6 +11,9 @@ class Phrase:
                 print('_', end='')
         print()
 
+    def check_guess(self, guess) -> bool:
+        return guess in self.phrase
+
     def check_letter(self) -> bool:
         pass
 
