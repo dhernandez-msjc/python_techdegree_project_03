@@ -56,6 +56,10 @@ class Game:
 
     @staticmethod
     def _create_phrases() -> []:
+        """
+        Static method creates a list of phrases of size NUMBER_OF_PHRASES.
+        :return: returns a list of phrases
+        """
         selected_phrases = []
 
         for _ in range(NUMBER_OF_PHRASES):
@@ -66,6 +70,11 @@ class Game:
 
     @staticmethod
     def _validate_user_guess() -> str:
+        """
+        Static method prompts user for input and validates user input to only take
+        in a single letter a - z.
+        :return: single letter in range of a - z as a string.
+        """
         user_input = input('Enter a letter: ')
 
         while user_input not in ascii_lowercase or len(user_input) != 1:
