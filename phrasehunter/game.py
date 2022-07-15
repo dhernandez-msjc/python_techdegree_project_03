@@ -4,6 +4,7 @@ from random import choice
 from string import ascii_lowercase
 
 NUMBER_OF_PHRASES = 5
+ALLOWED_MISSED_GUESSES = 5
 
 
 class Game:
@@ -37,11 +38,17 @@ class Game:
         self.active_phrase = self.get_random_phrase()
 
         self.welcome()
-        print(f'Number missed: {self.missed}')
-        self.active_phrase.display(self.guesses)
 
-        user_guess = self.get_guess()
-        self.guesses.append(user_guess)
+        while self.missed < ALLOWED_MISSED_GUESSES:
+            print(f'Number missed: {self.missed}')
+            self.active_phrase.display(self.guesses)
+            print()
+
+            user_guess = self.get_guess()
+            self.guesses.append(user_guess)
+
+            if not self.active_phrase.check_guess(user_guess):
+                self.missed += 1
 
     def game_over(self):
         pass
