@@ -39,7 +39,7 @@ class Game:
 
         self.welcome()
 
-        while self.missed < ALLOWED_MISSED_GUESSES:
+        while self.missed < ALLOWED_MISSED_GUESSES and not self.active_phrase.check_complete(self.guesses):
             print(f'Number missed: {self.missed}')
             self.active_phrase.display(self.guesses)
             print()
@@ -49,9 +49,10 @@ class Game:
 
             if not self.active_phrase.check_guess(user_guess):
                 self.missed += 1
+        self.game_over()
 
     def game_over(self):
-        pass
+        print('Congratulations! You won!')
 
     @staticmethod
     def _create_phrases() -> []:
