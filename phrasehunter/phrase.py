@@ -14,8 +14,8 @@ class Phrase:
     def check_guess(self, guess) -> bool:
         return guess in self.phrase
 
-    def check_letter(self) -> bool:
-        pass
-
-    def check_complete(self) -> bool:
-        pass
+    def check_complete(self, guesses) -> bool:
+        for letter in self.phrase:
+            if letter not in guesses:
+                return False
+        return True
